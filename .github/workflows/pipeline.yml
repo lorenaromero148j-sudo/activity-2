@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: "main" # Se activa al hacer push a la rama main
+    branches: "main" # Se activa cada vez que subes algo a la rama principal
 
 permissions:
   contents: read
@@ -34,7 +34,7 @@ jobs:
       - name: Subir artefacto para el Deploy
         uses: actions/upload-pages-artifact@v3
         with:
-          # Vite genera los archivos en la carpeta 'dist' por defecto
+          # Para Svelte/Vite la carpeta de salida es 'dist'
           path: './dist'
 
       - name: Publicación automática (Etapa Deploy)
