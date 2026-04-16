@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-static'; // Cambia adapter-auto por static
+import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -11,7 +11,7 @@ const config = {
 			fallback: '404.html'
 		}),
 		paths: {
-			base: '/activity-2', // Tu nombre de repositorio
+			base: '/activity-2',
 		}
 	}
 };
