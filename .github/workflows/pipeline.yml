@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: "main" # Se activa cada vez que subes algo a la rama principal
+    branches: "main"
 
 permissions:
   contents: read
@@ -22,10 +22,10 @@ jobs:
           node-version: 20
           cache: 'npm'
 
-      - name: Instalación de dependencias (Etapa Build)
+      - name: Instalación de dependencias
         run: npm install
 
-      - name: Construir proyecto
+      - name: Construir proyecto (Build)
         run: npm run build
 
       - name: Configurar GitHub Pages
@@ -34,9 +34,8 @@ jobs:
       - name: Subir artefacto para el Deploy
         uses: actions/upload-pages-artifact@v3
         with:
-          # Para Svelte/Vite la carpeta de salida es 'dist'
-          path: './dist'
+          path: './build' # SvelteKit genera esta carpeta al terminar
 
-      - name: Publicación automática (Etapa Deploy)
+      - name: Publicación automática (Deploy)
         id: deployment
         uses: actions/deploy-pages@v4
