@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: "main"
+    branches: "main" # Se activa al subir cambios a la rama principal
 
 permissions:
   contents: read
@@ -34,7 +34,8 @@ jobs:
       - name: Subir artefacto para el Deploy
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './build' 
+          # IMPORTANTE: SvelteKit genera la carpeta 'build'
+          path: './build'
 
       - name: Publicación automática (Deploy)
         id: deployment
