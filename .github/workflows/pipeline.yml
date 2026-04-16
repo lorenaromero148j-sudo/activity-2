@@ -34,7 +34,7 @@ jobs:
       - name: Subir artefacto para el Deploy
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './build' # SvelteKit genera esta carpeta al terminar
+          path: './build' 
 
       - name: Publicación automática (Deploy)
         id: deployment
